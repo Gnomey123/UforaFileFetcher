@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 LOGIN_URL = "https://elosp.ugent.be/welcome"
 
@@ -29,7 +29,7 @@ def get_session(email, password, otc_secret):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
 
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    driver = webdriver.Edge(EdgeChromiumDriverManager().install())
     driver.get(LOGIN_URL)
     driver.find_element(By.ID, LOGIN_BUTTON).click()
 
